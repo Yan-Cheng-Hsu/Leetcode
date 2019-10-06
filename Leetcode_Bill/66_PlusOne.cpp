@@ -1,6 +1,7 @@
 #include<iostream>
 #include<stdio.h>
 #include<vector>
+#include<set>
 using namespace std;
 
 class Solution 
@@ -36,7 +37,11 @@ vector<int> Solution::plusOne(vector<int> &digits)
     return digits;
 }
 
-
+class Solution2
+{
+    public:
+        vector<int> plusOne(vector<int>& digits);
+};
 
 int main(void)
 {

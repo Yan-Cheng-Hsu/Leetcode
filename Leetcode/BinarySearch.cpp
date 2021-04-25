@@ -5,28 +5,27 @@
 using namespace std;
 
 
+/*
+
+Preconditions for using Binary Search Technique:
+1. When the target list is sorted already.[ if not, please sort (Time complexity: O(nlogn) ) the target list first ].
+
+Benefits of using Binary Search Technique:
+1. Time complexity O(n) --> O(logn), where n is the size of the target array.
+
+*/
+
+
 class Solution
 {
     public:
-        int ClassicalBinarySearch( int num , vector<int> nums );
         int Sqrt69_1( int x );
         int Sqrt69_2( int x );
+        char nextGreatestLetter744( vector<char>& letters, char target );
         void test();
 };
 
 
-
-
-
-
-int Solution::ClassicalBinarySearch( int num , vector<int> nums )
-{
-    int out;
-
-
-
-    return out;
-}
 
 
 int Solution::Sqrt69_1( int x )
@@ -55,15 +54,40 @@ int Solution::Sqrt69_2( int x )
 }
 
 
+char Solution::nextGreatestLetter744( vector<char>& letters, char target )
+{
+    int l = 0;
+    int r = letters.size() - 1;
+
+    while( l <= r )
+    {
+        int mid = (l+r) / 2;
+
+        if( letters[mid] <= target )
+            l = mid + 1;
+        else 
+            r = mid - 1;
+
+    }
+    if( l > ( letters.size()-1 ) )
+        return letters[0];
+    else 
+        return letters[l];
+    
+}
+
 
 
 
 
 void Solution::test()
 {
-    int x;
-    cout<<x<<endl;
-    cout<<Sqrt69_2(x);
+    vector<char> letters(3);
+    letters[0] = 'c';
+    letters[1] = 'f';
+    letters[2] = 'j';
+    
+    cout<<nextGreatestLetter774( letters , 'c' );
     return;
 }
 

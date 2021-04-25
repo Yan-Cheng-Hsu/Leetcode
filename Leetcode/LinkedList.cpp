@@ -17,6 +17,7 @@ class Solution
 {
     public:
         ListNode *getIntersectionNode160(ListNode *headA, ListNode *headB);
+        ListNode* reverseList206(ListNode* head);
         void test();
 
 };
@@ -64,6 +65,30 @@ ListNode* Solution::getIntersectionNode160(ListNode *headA, ListNode *headB)
     return l1;
 
 }
+
+
+ListNode* Solution::reverseList206(ListNode* head)
+{
+    if( head == 0 || ( (head->next) == 0 ) )
+        return head;
+
+    ListNode* l1 = head;
+    ListNode* l2 = head -> next;
+
+    while( l2 != 0 )
+    {
+        if(l1 == head)
+            l1 -> next = NULL;
+        
+        ListNode* temp = l1;
+        l1 = l2;
+        l2 = l2 -> next;  
+        l1 -> next = temp;
+    }
+
+    return l1;
+}
+
 
 
 void Solution::test()

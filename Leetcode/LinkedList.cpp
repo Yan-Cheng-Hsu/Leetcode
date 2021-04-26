@@ -16,8 +16,9 @@ struct ListNode
 class Solution
 {
     public:
-        ListNode *getIntersectionNode160(ListNode *headA, ListNode *headB);
+        ListNode* getIntersectionNode160(ListNode *headA, ListNode *headB);
         ListNode* reverseList206(ListNode* head);
+        ListNode* mergeTwoLists21(ListNode* l1, ListNode* l2);
         void test();
 
 };
@@ -89,6 +90,57 @@ ListNode* Solution::reverseList206(ListNode* head)
     return l1;
 }
 
+ListNode* Solution::mergeTwoLists21(ListNode* l1, ListNode* l2)
+{
+    if( l1 == 0 ) 
+        return l2;
+    if( l2 == 0 )
+        return l1; 
+
+    ListNode *head = new ListNode(0);
+    if( l1 -> val < l2 -> val)
+    {
+        head -> val = l1 -> val;
+        l1 = l1 -> next;
+    }
+    else
+    {
+        head -> val = l2 -> val;
+        l2 = l2 -> next;
+    }
+    
+    ListNode *ptr = head;
+
+
+    while( ( l1 != 0 ) && ( l2 != 0 ) )
+    {
+        if( l1 -> val < l2 -> val )
+        {
+            ListNode *temp = new ListNode( l1 -> val );
+            ptr -> next = temp;
+            ptr = temp;
+            l1 = l1 -> next;
+        }
+        else
+        {
+            ListNode *temp = new ListNode( l2 -> val );
+            ptr -> next = temp;
+            ptr = temp;
+            l2 = l2 -> next;
+        }
+
+
+    }
+    
+    if( l1 != 0 )
+        ptr -> next = l1;
+    else
+        ptr -> next = l2;
+
+    return head;
+
+
+}
 
 
 void Solution::test()

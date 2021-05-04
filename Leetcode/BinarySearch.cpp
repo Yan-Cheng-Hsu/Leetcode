@@ -85,13 +85,17 @@ int Solution::firstBadVersion278( int n )
     int l = 1;
     int r = n;
 
-    while()
+    while( l<r )
     {
-        
+        int mid = (l+r) / 2;
+        if( isBadVersion(mid) && !isBadVersion(mid-1) )
+            return mid;
+        else if( isBadVersion(mid) && isBadVersion(mid-1) )
+            l = mid + 1;
+        else
+            r = mid - 1;
+
     }
-
-
-
 
 }
 

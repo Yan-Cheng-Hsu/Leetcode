@@ -22,6 +22,7 @@ class Solution
         int Sqrt69_1( int x );
         int Sqrt69_2( int x );
         char nextGreatestLetter744( vector<char>& letters, char target );
+        int firstBadVersion278(int n);
         void test();
 };
 
@@ -74,6 +75,24 @@ char Solution::nextGreatestLetter744( vector<char>& letters, char target )
     else 
         return letters[l];
     
+}
+
+
+
+int Solution::firstBadVersion278( int n )
+{
+    int fbi = 1;
+    int l = 1;
+    int r = n;
+
+    while()
+    {
+        
+    }
+
+
+
+
 }
 
 

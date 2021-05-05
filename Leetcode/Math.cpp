@@ -17,6 +17,8 @@ class Solution
 
 int Solution::countPrimes204( int n )
 {
+    //Implementation of sieve of Eratosthenes
+
     if( n < 3 )
         return 0;
     

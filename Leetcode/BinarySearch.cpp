@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include<cstdio>
 #include<iostream>
 #include<vector.h>
 #include<cmath>
@@ -22,7 +22,8 @@ class Solution
         int Sqrt69_1( int x );
         int Sqrt69_2( int x );
         char nextGreatestLetter744( vector<char>& letters, char target );
-        int firstBadVersion278(int n);
+        int firstBadVersion278( int n );
+        int singleNonDuplicate540( vector<int>& nums) ;
         void test();
 };
 
@@ -79,14 +80,23 @@ char Solution::nextGreatestLetter744( vector<char>& letters, char target )
 
 
 
+bool isBadVersion( int n )
+{
+    if( n >= 4 )
+        return true;
+    else 
+        return false;
+}
+
+
 int Solution::firstBadVersion278( int n )
 {
-    int fbi = 1;
     int l = 1;
     int r = n;
 
     while( l<r )
     {
+
         int mid = (l+r) / 2;
         if( isBadVersion(mid) && !isBadVersion(mid-1) )
             return mid;
@@ -96,21 +106,42 @@ int Solution::firstBadVersion278( int n )
             r = mid - 1;
 
     }
+    return -1;
+
+}
+
+
+
+int Solution::singleNonDuplicate540( vector<int>& nums)
+{
+    int r = nums.size() - 1;
+    int l = 0;
+     
+    while( l < r )
+    {
+        int mid = (l+r) / 2;
+        
+        if( mid%2 == 0 )
+        {
+            
+        }
+        else
+        {
+            if( num[mid] == num[mid-1] )
+                
+        }
+
+    }
+
 
 }
 
 
 
 
-
 void Solution::test()
 {
-    vector<char> letters(3);
-    letters[0] = 'c';
-    letters[1] = 'f';
-    letters[2] = 'j';
-    
-    cout<<nextGreatestLetter774( letters , 'c' );
+    cout<<firstBadVersion278(5);
     return;
 }
 
@@ -122,3 +153,6 @@ int main(void)
     system("pause");
     return 0;
 }
+
+
+

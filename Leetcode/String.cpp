@@ -50,43 +50,49 @@ int Solution::compress443( vector<char>& chars )
         return 0;
     if( chars.size() == 1 )
         return 1;
-
-    vector<char> out;
-
+    
     int l = 0;
     int r = 1;
-    
-    if( chars[l] != chars[r] )
-    {
-        out.push_back( chars[l] );
-        l = r;   
-    }
+    int counter = 1;
 
-    while( l < chars.size() )
+    if( chars[l] == chars[r] )
     {
-        
-        while( chars[r] == chars[r-1] &&  r < chars.size() )
+        counter++;
+        r++;
+    }
+    else 
+        l = r;
+    
+
+    while( r < chars.size() )
+    {
+        while( chars[r-1] == char[r] )
         {
             r++;
+            counter++;
         }
         
-        if( r-l > 0 )
-        {   
-            out.push_back( chars[l] );
-            int d = r - l + 1;
-            string s = Int2String( d );
-
-            for(int i=s.length()-1;i>=0;i--)
-                out.push_back( s[i] );
+        if( counter < 10 )
+        {
+            
         }
-        else
-            out.push_back( chars[l] );
-        r = r + 1;
-        l = r;
+        else if( counter < 100 )
+        {
+            
+        }
+        else 
+        {
 
+        }
+
+        counter = 1;
+        l = r;
     }
 
-    chars = out;
+    
+    
+    
+    
 
     return chars.size();
 

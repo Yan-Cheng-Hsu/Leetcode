@@ -7,7 +7,8 @@ class Solution
 {
     public:
         int climbStairs70( int n );
-        int rob198( vector<int>& nums ) ;
+        int rob198( vector<int>& nums );
+        vector<int> productExceptSelf238( vector<int>& nums );
         void test();
 
 };
@@ -38,8 +39,35 @@ int Solution::rob198( vector<int> &nums )
     
 }
 
+
+vector<int> Solution::productExceptSelf238( vector<int>& nums )
+{
+    vector<int> out( nums.size() );
+
+    out[0] = 1;
+    for(int i=1;i<nums.size();i++)
+        out[i] = out[i-1]*nums[i-1];
+    
+    int c = 1;
+    for(int i=nums.size()-1;i>=0;i--)
+    {
+        out[i] = out[i]*c;
+        c *= nums[i];
+    }
+
+    return out;
+}
+
+
+
 void Solution::test()
 {
+    for(int i=0;i<10;++i)
+        cout<<i<<", ";
+    cout<<endl;
+    for(int i=0;i<10;i++)
+        cout<<i<<", ";
+    cout<<endl;
 
     return;
 }

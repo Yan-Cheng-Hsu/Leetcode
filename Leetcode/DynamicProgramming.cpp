@@ -8,6 +8,7 @@ class Solution
     public:
         int climbStairs70( int n );
         int rob198( vector<int>& nums );
+        int rob198_v2( vector<int>& nums );
         vector<int> productExceptSelf238( vector<int>& nums );
         void test();
 
@@ -57,6 +58,36 @@ int Solution::rob198( vector<int> &nums )
 
 
 }
+
+
+int Solution::rob198_v2( vector<int> &nums )
+{
+    if( nums.size() == 0 ) 
+        return 0;
+    if(  nums.size() == 1 ) 
+        return nums[0];
+    if( nums.size() == 2 ) 
+        return max( nums[0] , nums[1] );
+
+
+
+
+    int loot_2 = nums[0];
+    int loot_1 = max( nums[0] , nums[1] );
+    
+    for(int i=2;i<nums.size();i++)
+    {
+        int loot = max( loot_1 , loot_2 + nums[i] );
+        loot_2 = loot_1;
+        loot_1 = loot;
+    }
+    
+
+    return loot_1; 
+}
+
+
+
 
 
 vector<int> Solution::productExceptSelf238( vector<int>& nums )
